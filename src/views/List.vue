@@ -42,7 +42,7 @@
         </tbody>
       </table>
       <p v-else>
-        {{ $l('noTasksYet') }}. <router-link to="/">{{ $l('create') }}?</router-link>
+        {{ $l('noTasksYet') }}. <router-link to="/create">{{ $l('create') }}?</router-link>
       </p>
     </div>
   </div>
