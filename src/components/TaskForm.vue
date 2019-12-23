@@ -7,7 +7,9 @@
         <label for="title">{{ $l('title') }}</label>
         <span class="helper-text" :data-error="$l('titleRequired')"></span>
       </div>
-      <div class="chips" ref="chips"></div>
+      <div class="chips" ref="chips">
+        <input ref="chipsInput" />
+      </div>
       <div class="input-field">
         <textarea
           v-model="form.description"
@@ -50,6 +52,7 @@
 
 <script>
 import { TYPES } from '@/types'
+import { mapState } from 'vuex'
 
 export default {
   name: 'home',
@@ -117,11 +120,21 @@ export default {
     }
   },
   computed: {
+    ...mapState(['locale']),
     descLength() {
       return this.form.description.length
     },
     isNewTask() {
       return !this.taskId
+    }
+  },
+  watch: {
+    locale() {
+      if (this.chips) {
+        const placeholder = this.$l('tags')
+        this.chips.options.placeholder = placeholder
+        this.$refs.chipsInput.placeholder = placeholder
+      }
     }
   },
   methods: {
