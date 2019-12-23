@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import List from '../views/List.vue'
 import Task from '../views/Task.vue'
+import Create from '../views/Create.vue'
 
 Vue.use(VueRouter)
 
@@ -12,7 +13,15 @@ const routes = [
     name: 'home',
     component: Home,
     meta: {
-      title: 'Главная',
+      title: 'Main',
+    }
+  },
+  {
+    path: '/create',
+    name: 'create',
+    component: Create,
+    meta: {
+      title: 'Create Task'
     }
   },
   {
@@ -20,7 +29,7 @@ const routes = [
     name: 'list',
     component: List,
     meta: {
-      title: 'Список задач'
+      title: 'Tasks List'
     }
   },
   {
@@ -28,7 +37,7 @@ const routes = [
     name: 'task',
     component: Task,
     meta: {
-      title: 'Страница задачи'
+      title: 'Task Page'
     }
   }
 ]

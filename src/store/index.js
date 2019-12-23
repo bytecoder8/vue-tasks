@@ -50,6 +50,18 @@ export default new Vuex.Store({
   getters: {
     taskById(state) {
       return id => state.tasks.find(val => val.id === +id)
+    },
+    tasksNearDeadline(state) {
+      return state.tasks.filter(task => (
+        task.status === TYPES.ACTIVE
+      ))
+    },
+    tasksSorted(state) {
+      const tasks = state.tasks
+      tasks.sort((a, b) => {
+        return(new Date(b.date) - new Date(a.date))
+      })
+      return tasks
     }
   },
   modules: {

@@ -1,17 +1,36 @@
 <template>
-  <nav class="cyan darken-1">
-    <div class="nav-wrapper">
-      <router-link to="/" class="brand-logo"><i class="material-icons">cloud</i>Logo</router-link>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <router-link tag="li" to="/" exact active-class="active">
+<div>
+    <nav class="cyan darken-1">
+      <div class="nav-wrapper">
+        <router-link to="/" exact class="brand-logo"><i class="material-icons">cloud</i>Tasks</router-link>
+        <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <router-link tag="li" to="/create" active-class="active">
+            <a href="#">Create</a>
+          </router-link>
+          <router-link tag="li" to="/list" active-class="active">
+            <a href="#">List</a>
+          </router-link>
+        </ul>
+      </div>
+    </nav>
+    <ul class="sidenav sidenav-close" ref="sidenav" id="mobile-links">
+        <router-link tag="li" to="/create" active-class="active">
           <a href="#">Create</a>
         </router-link>
         <router-link tag="li" to="/list" active-class="active">
           <a href="#">List</a>
         </router-link>
-      </ul>
+    </ul>
+    <div class="switch">
+      <label>
+        English
+        <input type="checkbox">
+        <span class="lever"></span>
+        Русский
+      </label>
     </div>
-  </nav>
+</div>
 </template>
 
 <style lang="scss" scoped>
@@ -19,3 +38,11 @@ nav {
   padding-left: 1rem;
 }
 </style>
+
+<script>
+export default {
+  mounted() {
+    window.M.Sidenav.init(this.$refs.sidenav, {})
+  }
+}
+</script>

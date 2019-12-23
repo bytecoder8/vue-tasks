@@ -14,7 +14,7 @@
     </div>
 
     <div class="row">
-      <table v-if="tasks.length">
+      <table v-if="tasksSorted.length" class="col s12 m12 responsive-table stripped">
         <thead>
           <tr>
             <th>#</th>
@@ -60,7 +60,7 @@
 </style>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   data() {
@@ -69,12 +69,12 @@ export default {
     }
   },
   computed: {
-    ...mapState(['tasks']),
+    ...mapGetters(['tasksSorted']),
     filteredTasks() {
       if (!this.filter) {
-        return this.tasks
+        return this.tasksSorted
       }
-      return this.tasks.filter(task => task.status === this.filter)
+      return this.tasksSorted.filter(task => task.status === this.filter)
     }
   },
   mounted() {

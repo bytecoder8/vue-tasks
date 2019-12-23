@@ -1,13 +1,16 @@
 <template>
-  <TaskForm />
+  <div class="row">
+    <h1>Tasks near deadline: 
+      <router-link to="/list">{{tasksNearDeadline.length}}</router-link>
+    </h1>
+  </div>
 </template>
 
 <script>
-import TaskForm from '@/components/TaskForm'
-
+import { mapGetters } from 'vuex';
 export default {
-  components: {
-    TaskForm
+  computed: {
+    ...mapGetters(['tasksNearDeadline'])
   }
 }
 </script>

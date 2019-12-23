@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <form class="col s6 offset-s3" @submit.prevent="handleSubmit" method="post">
+    <form class="col s12 m6 offset-m3" @submit.prevent="handleSubmit" method="post">
       <h1>{{isNewTask ? 'Create' : 'Update'}}</h1>
       <div class="input-field">
         <input type="text" v-model="form.title" name="title" id="title" class="validate" required>
@@ -19,6 +19,7 @@
           required
         ></textarea>
         <label for="description">Description</label>
+        <span class="helper-text" data-error="Description is required"></span>
         <span class="character-counter">{{ descLength }}/{{ maxDescLength }}</span>
       </div>
       <div class="input-field">
