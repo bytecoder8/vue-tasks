@@ -4,6 +4,7 @@
   "update": "Обновить",
   "title": "Название",
   "tags": "Теги",
+  "enterTags": "Введите теги",
   "date": "Дата",
   "status": "Статус",
   "actions": "Действия",
@@ -18,5 +19,6 @@
   "titleRequired": "Название обязательно",
   "descriptionRequired": "Описание обязательно",
   "tasksNearDeadline": "Задачи у дедлайна",
-  "taskList": "Список задач"
+  "taskList": "Список задач",
+  "noTasksYet": "Пока нет задач"
 }

@@ -42,7 +42,7 @@
         </tbody>
       </table>
       <p v-else>
-        No tasks yet. <router-link to="/">Create new one?</router-link>
+        {{ $l('noTasksYet') }}. <router-link to="/">{{ $l('create') }}?</router-link>
       </p>
     </div>
   </div>
@@ -65,11 +65,13 @@ import { mapState, mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      filter: null
+      filter: null,
+      select: null
     }
   },
   computed: {
     ...mapGetters(['tasksSorted']),
+    ...mapState(['locale']),
     filteredTasks() {
       if (!this.filter) {
         return this.tasksSorted
@@ -77,8 +79,30 @@ export default {
       return this.tasksSorted.filter(task => task.status === this.filter)
     }
   },
+  methods: {
+    initSelect() {
+      this.destroySelect()
+      this.$nextTick( () => {
+        this.select = window.M.FormSelect.init(this.$refs.select)
+      })
+    },
+    destroySelect() {
+      if (this.select && this.select.destroy) {
+        this.select.destroy()
+        this.select = null
+      }
+    }
+  },
+  watch: {
+    locale() {
+      this.initSelect()
+    }
+  },
   mounted() {
-    window.M.FormSelect.init(this.$refs.select)
+    this.initSelect()
+  },
+  destroyed() {
+    this.destroySelect()
   }
 }
 </script>

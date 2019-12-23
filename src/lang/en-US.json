@@ -4,12 +4,14 @@
   "update": "Обновить",
   "title": "Title",
   "tags": "Tags",
+  "enterTags": "Enter tags",
   "date": "Date",
   "status": "Status",
+  "actions": "Actions",
   "description": "Description",
   "send": "Send",
   "open": "Open",
-  "all": "Все",
+  "all": "All",
   "active": "Active",
   "completed": "Completed",
   "outdated": "Outdated",
@@ -17,5 +19,6 @@
   "titleRequired": "Title is required",
   "descriptionRequired": "Description is required",
   "tasksNearDeadline": "Tasks near Deadline",
-  "taskList": "Task List"
+  "taskList": "Task List",
+  "noTasksYet": "No tasks yet"
 }

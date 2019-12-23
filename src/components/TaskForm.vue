@@ -85,7 +85,7 @@ export default {
   },
   mounted() {
     this.chips = window.M.Chips.init(this.$refs.chips, {
-      placeholder: this.$l('tags'),
+      placeholder: this.$l('enterTags'),
       data: this.tags
     })
 
@@ -131,7 +131,7 @@ export default {
   watch: {
     locale() {
       if (this.chips) {
-        const placeholder = this.$l('tags')
+        const placeholder = this.$l('enterTags')
         this.chips.options.placeholder = placeholder
         this.$refs.chipsInput.placeholder = placeholder
       }
