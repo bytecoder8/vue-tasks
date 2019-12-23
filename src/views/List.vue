@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="row">
-      <h1>Task List</h1>
+      <h1>{{ $l('taskList') }}</h1>
 
       <div class="input-field col s6">
         <select v-model="filter" ref="select">
-          <option value="">All</option>
-          <option value="active">Active</option>
-          <option value="completed">Completed</option>
-          <option value="outdated">Outdated</option>
+          <option value="">{{ $l('all') }}</option>
+          <option value="active">{{ $l('active') }}</option>
+          <option value="completed">{{ $l('completed') }}</option>
+          <option value="outdated">{{ $l('outdated') }}</option>
         </select>
       </div>
     </div>
@@ -18,11 +18,11 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Date</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th>{{ $l('date') }}</th>
+            <th>{{ $l('title') }}</th>
+            <th>{{ $l('description') }}</th>
+            <th>{{ $l('status') }}</th>
+            <th>{{ $l('actions') }}</th>
           </tr>
         </thead>
         <tbody>
@@ -31,12 +31,12 @@
             <td>{{ new Date(task.date).toLocaleDateString() }}</td>
             <td>{{ task.title }}</td>
             <td class="desc-td"><div class="desc-text">{{ task.description }}</div></td>
-            <td>{{ task.status }}</td>
+            <td>{{ $l(task.status) }}</td>
             <td>
               <router-link 
                 tag="button" class="btn bnt-small waves-effect waves-light" 
                 :to="'/task/' + task.id"
-              >Open</router-link>
+              >{{ $l('open') }}</router-link>
             </td>
           </tr>
         </tbody>

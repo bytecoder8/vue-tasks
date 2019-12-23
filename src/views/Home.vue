@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <h1>Tasks near deadline: 
+    <h1>{{ $l('tasksNearDeadline') }}: 
       <router-link to="/list">{{tasksNearDeadline.length}}</router-link>
     </h1>
   </div>

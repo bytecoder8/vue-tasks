@@ -1,11 +1,11 @@
 <template>
   <div class="row">
     <form class="col s12 m6 offset-m3" @submit.prevent="handleSubmit" method="post">
-      <h1>{{isNewTask ? 'Create' : 'Update'}}</h1>
+      <h1>{{ $l(isNewTask ? 'create' : 'update') }}</h1>
       <div class="input-field">
         <input type="text" v-model="form.title" name="title" id="title" class="validate" required>
-        <label for="title">Title</label>
-        <span class="helper-text" data-error="Title is required"></span>
+        <label for="title">{{ $l('title') }}</label>
+        <span class="helper-text" :data-error="$l('titleRequired')"></span>
       </div>
       <div class="chips" ref="chips"></div>
       <div class="input-field">
@@ -18,8 +18,8 @@
           :maxlength="maxDescLength"
           required
         ></textarea>
-        <label for="description">Description</label>
-        <span class="helper-text" data-error="Description is required"></span>
+        <label for="description">{{ $l('description') }}</label>
+        <span class="helper-text" :data-error="$l('descriptionRequired')"></span>
         <span class="character-counter">{{ descLength }}/{{ maxDescLength }}</span>
       </div>
       <div class="input-field">
@@ -27,12 +27,12 @@
       </div>
 
       <div v-if="isNewTask">
-        <button type="submit" class="btn waves-effect waves-light">Send</button>
+        <button type="submit" class="btn waves-effect waves-light">{{ $l('send') }}</button>
       </div>
       <div v-else>
-        <button type="submit" class="btn waves-effect waves-light">Update</button>
+        <button type="submit" class="btn waves-effect waves-light">{{ $l('update') }}</button>
         <button type="button" @click.prevent="completeTask" class="btn blue waves-effect waves-light complete-btn"
-          >Complete Task</button>
+          >{{ $l('completeTask') }}</button>
       </div>
 
     </form>
@@ -82,7 +82,7 @@ export default {
   },
   mounted() {
     this.chips = window.M.Chips.init(this.$refs.chips, {
-      placeholder: 'Tags',
+      placeholder: this.$l('tags'),
       data: this.tags
     })
 

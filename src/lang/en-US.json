@@ -1,0 +1,21 @@
+{
+  "create" : "Create",
+  "list" : "List",
+  "update": "Обновить",
+  "title": "Title",
+  "tags": "Tags",
+  "date": "Date",
+  "status": "Status",
+  "description": "Description",
+  "send": "Send",
+  "open": "Open",
+  "all": "Все",
+  "active": "Active",
+  "completed": "Completed",
+  "outdated": "Outdated",
+  "completeTask": "Complete Task",
+  "titleRequired": "Title is required",
+  "descriptionRequired": "Description is required",
+  "tasksNearDeadline": "Tasks near Deadline",
+  "taskList": "Task List"
+}

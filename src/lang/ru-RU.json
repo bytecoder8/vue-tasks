@@ -1,0 +1,22 @@
+{
+  "create" : "Создать",
+  "list" : "Список",
+  "update": "Обновить",
+  "title": "Название",
+  "tags": "Теги",
+  "date": "Дата",
+  "status": "Статус",
+  "actions": "Действия",
+  "description": "Описание",
+  "send": "Отправить",
+  "open": "Открыть",
+  "all": "Все",
+  "active": "В работе",
+  "completed": "Выполненные",
+  "outdated": "Просроченные",
+  "completeTask": "Завершить задачу",
+  "titleRequired": "Название обязательно",
+  "descriptionRequired": "Описание обязательно",
+  "tasksNearDeadline": "Задачи у дедлайна",
+  "taskList": "Список задач"
+}

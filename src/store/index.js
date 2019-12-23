@@ -11,7 +11,8 @@ export default new Vuex.Store({
         task.status = TYPES.OUTDATED
       }
       return task
-    })
+    }),
+    locale: localStorage.getItem('locale') || 'en-US'
   },
   mutations: {
     createTask(state, task) {
@@ -34,6 +35,10 @@ export default new Vuex.Store({
       const index = state.tasks.findIndex(t => t.id === id)
       state.tasks[index].status = TYPES.COMPLETED
       localStorage.setItem('tasks', JSON.stringify(state.tasks))
+    },
+    setLocale(state, locale) {
+      state.locale = locale
+      localStorage.setItem('locale', locale)
     }
   },
   actions: {
@@ -45,6 +50,9 @@ export default new Vuex.Store({
     },
     completeTask({ commit }, { id }) {
       commit('completeTask', { id })
+    },
+    setLocale({ commit }, locale) {
+      commit('setLocale', locale)
     }
   },
   getters: {
