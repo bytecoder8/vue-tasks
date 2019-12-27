@@ -1,24 +1,27 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { TYPES } from '@/types'
+import saveStatePlugin from '@/plugins/saveState'
 
 Vue.use(Vuex)
 
+const tasks = JSON.parse(localStorage.getItem(TYPES.TASKS) || '[]').map(task => {
+  if (new Date(task.date) < new Date()) {
+    task.status = TYPES.OUTDATED
+  }
+  return task
+})
+
 export default new Vuex.Store({
+  plugins: [saveStatePlugin],
   state: {
-    tasks: JSON.parse(localStorage.getItem('tasks') || '[]').map(task => {
-      if (new Date(task.date) < new Date()) {
-        task.status = TYPES.OUTDATED
-      }
-      return task
-    }),
-    locale: localStorage.getItem('locale') || 'en-US'
+    tasks,
+    locale: localStorage.getItem(TYPES.LOCALE) || 'en-US'
   },
   mutations: {
     createTask(state, task) {
       const status = new Date(task.date) > new Date() ? TYPES.ACTIVE : TYPES.OUTDATED
       state.tasks.push({...task, status})
-      localStorage.setItem('tasks', JSON.stringify(state.tasks))
     },
     updateTask(state, { id, title, date, description }) {
       const index = state.tasks.findIndex(t => t.id === id)
@@ -29,16 +32,13 @@ export default new Vuex.Store({
         status = new Date(date) > new Date() ? TYPES.ACTIVE : TYPES.OUTDATED
       }
       state.tasks[index] = {...task, title, date, description, status}
-      localStorage.setItem('tasks', JSON.stringify(state.tasks))
     },
     completeTask(state, { id } ) {
       const index = state.tasks.findIndex(t => t.id === id)
       state.tasks[index].status = TYPES.COMPLETED
-      localStorage.setItem('tasks', JSON.stringify(state.tasks))
     },
     setLocale(state, locale) {
       state.locale = locale
-      localStorage.setItem('locale', locale)
     }
   },
   actions: {
