@@ -65,10 +65,6 @@ export default {
       type: String,
       default: ''
     },
-    status: {
-      type: String,
-      default: TYPES.ACTIVE
-    },
     date: {
       type: Date,
       default: function () {
@@ -145,8 +141,7 @@ export default {
           title: this.form.title,
           description: this.form.description,
           tags: this.chips.chipsData,
-          date: this.datePicker.date,
-          status: this.status
+          date: this.datePicker.date
         }
         this.$store.dispatch('createTask', newTask)
       } else {
@@ -155,8 +150,7 @@ export default {
           title: this.form.title,
           description: this.form.description,
           tags: this.chips.chipsData,
-          date: this.datePicker.date,
-          status: this.status
+          date: this.datePicker.date
         }
         this.$store.dispatch('updateTask', toUpdate)
       }

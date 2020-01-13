@@ -3,7 +3,6 @@
     <TaskForm 
       :title="task.title"
       :description="task.description"
-      :status="task.status"
       :taskId="task.id"
       :date="new Date(task.date)"
       :tags="task.tags"
