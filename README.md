@@ -1,5 +1,5 @@
 # Tasks
-
+Tags are working. Type a tag and then press **Enter**.
 ## Project setup
 ```
 npm install
